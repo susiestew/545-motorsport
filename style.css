@@ -25,6 +25,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
+img:where([width][height]) { height: auto; }
 a { color: inherit; }
 
 /* Headline style */
@@ -285,6 +286,9 @@ a.tile { text-decoration: none; }
 .item .cost { display: block; font-size: 15px; font-weight: 600; margin-top: 8px; }
 
 .print-group { margin-top: 112px; }
+.enquire { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--navy); }
+.enquire:hover { color: var(--logo-pink); }
+.shop-photo .item .art { padding: 24px; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; }
 .coming { text-align: center; margin: 0; padding: 56px 24px; background: #f2f2f2; font-stretch: 125%; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #555; }
 .note { margin-top: 112px; padding-top: 48px; border-top: 1px solid var(--grey-2); display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
 .note h3 { font-size: 24px; }
