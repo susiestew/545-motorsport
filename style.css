@@ -152,7 +152,7 @@ a { color: inherit; }
 }
 .story .display { font-size: clamp(30px, 3.4vw, 48px); margin-bottom: 28px; }
 .story p { margin: 0 0 18px; font-size: 17px; color: #2b2b2b; }
-.story > img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.story > img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 62%; }
 .story > img.photo-wide { height: auto; aspect-ratio: 1600 / 1067; }
 
 /* Banner */
@@ -169,6 +169,10 @@ a { color: inherit; }
 .banner { align-items: flex-start; min-height: 100vh; background-position: center bottom; }
 .banner::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.1) 75%); }
 .banner .inner { position: relative; padding: 14vh 24px 80px; max-width: 980px; }
+.banner-art { background: #4e4d4b; min-height: 0; overflow: hidden; }
+.banner-art::before { display: none; }
+.banner-art .inner { padding: 96px 24px 64px; max-width: 1200px; }
+.art-drawing { display: block; width: 100%; height: auto; aspect-ratio: 1600 / 400; object-fit: cover; object-position: 50% 52%; margin: 32px auto 0; }
 .banner .display { font-size: clamp(34px, 5.4vw, 72px); }
 .banner p { max-width: 620px; margin: 24px auto 0; font-size: 17px; color: rgba(255,255,255,0.88); }
 
@@ -368,5 +372,7 @@ a.tile { text-decoration: none; }
   .tiles { grid-template-columns: 1fr; }
   .shop { grid-template-columns: 1fr; }
   .hero-inner { padding-bottom: 72px; }
+  .art-drawing { width: 145%; max-width: none; margin-left: -22.5%; }
+  .banner-art .inner { padding: 72px 16px 40px; }
   .pack, .enquiry { padding: 32px 24px; }
 }
