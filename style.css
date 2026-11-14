@@ -332,6 +332,20 @@ a.tile { text-decoration: none; }
 .site-foot img { height: 40px; width: auto; max-width: none; aspect-ratio: 3872 / 550; flex: none; object-fit: contain; }
 .site-foot p { margin: 0; font-size: 13px; color: #444; }
 
+/* Header at medium widths (split-screen laptops, tablets) */
+@media (max-width: 1000px) {
+  .nav { padding: 0 24px; gap: 24px; }
+}
+/* Header on phones and narrow windows: logo row, then links in two rows */
+@media (max-width: 720px) {
+  .nav { display: grid; grid-template-columns: repeat(6, 1fr); height: auto; max-width: 460px; padding: 10px 12px 6px; gap: 2px 8px; justify-items: center; }
+  .nav .nav-logo { grid-column: 1 / -1; margin: 0 0 4px; }
+  .nav .nav-logo img { height: 36px; }
+  .nav a { font-size: 13px; letter-spacing: 0.03em; padding: 8px 0; }
+  .nav a:not(.nav-logo) { grid-column: span 2; }
+  .nav a:nth-of-type(5), .nav a:nth-of-type(6) { grid-column: span 3; }
+}
+
 @media (max-width: 900px) {
   .story, .ledger, .note, .contact, .chapter { grid-template-columns: 1fr; gap: 48px; }
   .chapter { gap: 0; }
@@ -344,11 +358,6 @@ a.tile { text-decoration: none; }
 
 }
 @media (max-width: 640px) {
-  .nav { padding: 10px 8px 8px; height: auto; flex-wrap: wrap; justify-content: center; gap: 4px 11px; }
-  .nav .nav-logo { margin: 0; flex-basis: 100%; display: block; text-align: center; }
-  .nav .nav-logo img { display: inline-block; }
-  .nav .nav-logo img { height: 36px; }
-  .nav a { font-size: 10px; letter-spacing: 0; font-stretch: 100%; }
   .site-foot { padding: 36px 16px; }
   .site-foot img { height: 30px; }
   .section { padding: 80px 16px; }
