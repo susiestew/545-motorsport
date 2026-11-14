@@ -135,6 +135,10 @@ a { color: inherit; }
 .go:hover i { background: var(--white); color: var(--black); border-color: var(--white); }
 .light .go:hover i { background: var(--black); color: var(--white); border-color: var(--black); }
 .go-row { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+.go-row.start { justify-content: flex-start; margin-top: 28px; }
+.story .aside { margin-top: 32px; font-size: 15px; color: #555; }
+.story .aside a { font-weight: 600; }
+.intro .go-row { margin-top: 28px; }
 
 /* Story block: text left, image right */
 .story {
@@ -319,18 +323,15 @@ a.tile { text-decoration: none; }
 .send:hover { background: var(--black); }
 
 /* Footer */
-.site-foot {
-  background: var(--white);
-  padding: 48px 40px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid var(--grey-2);
-}
-.site-foot img { height: 40px; width: auto; max-width: none; aspect-ratio: 3872 / 550; flex: none; object-fit: contain; }
-.site-foot p { margin: 0; font-size: 13px; color: #444; }
+.site-foot { background: var(--white); border-top: 1px solid var(--grey-2); }
+.foot-contact { text-align: center; padding: 88px 24px 72px; }
+.foot-contact .display { font-size: clamp(28px, 3.6vw, 46px); }
+.foot-contact p { margin: 16px 0 10px; color: #444; font-size: 17px; }
+.foot-email { font-size: clamp(18px, 2.4vw, 26px); font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 2px solid var(--logo-pink); padding-bottom: 2px; overflow-wrap: anywhere; }
+.foot-email:hover { color: var(--logo-pink); }
+.foot-base { padding: 32px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--grey-2); }
+.foot-base img { height: 40px; width: auto; max-width: none; aspect-ratio: 3872 / 550; flex: none; object-fit: contain; }
+.foot-base p { margin: 0; font-size: 13px; color: #444; }
 
 /* Header at medium widths (split-screen laptops, tablets) */
 @media (max-width: 1000px) {
@@ -358,8 +359,9 @@ a.tile { text-decoration: none; }
 
 }
 @media (max-width: 640px) {
-  .site-foot { padding: 36px 16px; }
-  .site-foot img { height: 30px; }
+  .foot-contact { padding: 64px 16px 56px; }
+  .foot-base { padding: 28px 16px; }
+  .foot-base img { height: 30px; }
   .section { padding: 80px 16px; }
   .story { padding: 72px 16px; }
   .tiles { grid-template-columns: 1fr; }
