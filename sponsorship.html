@@ -10,17 +10,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1794696413">
+  <link rel="stylesheet" href="style.css?v=1794699057">
 </head>
 <body>
 <header class="top">
   <nav class="nav">
     <a href="index.html" class="nav-logo" aria-label="545 Motorsport home"><img src="logo/545-navy-loop.gif?v=5" alt="545" width="960" height="300"></a>
-    <a href="index.html">Home</a>
-    <a href="journey.html">Racing</a>
-    <a href="engineering.html">Engineering</a>
-    <a href="prints.html">Prints</a>
-    <a href="sponsorship.html" aria-current="page">Sponsorship</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journey.html">Racing</a>
+      <a href="engineering.html">Engineering</a>
+      <a href="prints.html">Prints</a>
+      <a href="sponsorship.html" aria-current="page">Sponsorship</a>
+    </div>
   </nav>
 </header>
 <main>
@@ -82,6 +85,14 @@
     var solid = !document.querySelector(".hero");
     function set() { top.classList.toggle("solid", solid || window.scrollY > 40); }
     set(); window.addEventListener("scroll", set, { passive: true });
+    var btn = document.querySelector(".nav-toggle");
+    function close() { top.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
+    btn.addEventListener("click", function () {
+      var open = top.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    document.addEventListener("click", function (e) { if (!top.contains(e.target)) close(); });
   })();
 </script>
 </body>
