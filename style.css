@@ -231,31 +231,7 @@ a.tile { text-decoration: none; }
 .intro .display { font-size: clamp(28px, 3.8vw, 54px); }
 .intro p { max-width: 640px; margin: 24px auto 0; font-size: 17px; color: #444; }
 
-.lap { max-width: 1200px; margin: 0 auto; padding: 0 40px 120px; }
-.lap-line { position: relative; height: 2px; background: var(--grey-2); margin: 40px 0 0; }
-.lap-line .done { position: absolute; left: 0; top: 0; bottom: 0; background: var(--rose); }
-.lap-dots { position: relative; display: flex; justify-content: space-between; margin-top: -8px; }
-.lap-dots span { width: 14px; height: 14px; border-radius: 50%; background: var(--white); border: 2px solid var(--black); }
-.lap-dots span.on { background: var(--rose); border-color: var(--rose); }
-.lap-dots span.flag { width: 20px; height: 20px; margin-top: -3px; background: var(--black); }
-.lap-years { display: flex; justify-content: space-between; margin-top: 18px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--grey-5); }
-.lap-years b { color: var(--black); }
 
-.chapter { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; }
-.chapter + .chapter { border-top: 1px solid var(--grey-2); }
-.chapter .pic { background: var(--black) center / cover no-repeat; min-height: 420px; }
-.chapter .txt { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; }
-.chapter.flip .pic { order: 2; }
-.chapter.final { background: var(--black); color: var(--white); border-top: 0; }
-.year { font-family: var(--head); font-stretch: 125%; font-weight: 700; font-size: clamp(56px, 7vw, 104px); line-height: 0.9; letter-spacing: -0.01em; margin: 0 0 18px; }
-.chapter .display { font-size: clamp(22px, 2.2vw, 32px); margin-bottom: 28px; }
-.miles { list-style: none; margin: 0; padding: 0; }
-.miles li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--grey-2); font-size: 17px; font-weight: 500; }
-.final .miles li { border-top-color: rgba(255,255,255,0.18); }
-.miles li span { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--grey-5); white-space: nowrap; }
-.miles li.ok span { color: var(--rose); }
-.miles li.goal { font-stretch: 125%; font-weight: 700; text-transform: uppercase; font-size: 20px; }
-.miles li.goal span { color: var(--rose); }
 
 /* Sponsorship */
 .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--grey-2); }
@@ -355,6 +331,26 @@ a.tile { text-decoration: none; }
 .foot-base img { height: 40px; width: auto; max-width: none; aspect-ratio: 3872 / 550; flex: none; object-fit: contain; }
 .foot-base p { margin: 0; font-size: 13px; color: #444; }
 
+/* Racing page: title and snake timeline */
+.page-title { padding: calc(84px + 72px) 24px 8px; text-align: center; }
+.page-title .display { font-size: clamp(34px, 5.6vw, 76px); }
+.journey { max-width: 760px; margin: 0 auto; padding: 56px 24px 120px; }
+.journey > .display { text-align: center; font-size: clamp(26px, 3.4vw, 46px); margin-bottom: 48px; }
+.snake-wrap { position: relative; }
+.snake-track { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.snake-track path { fill: none; stroke-width: 4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.snake-track .todo { stroke: #cdcdd6; }
+.snake-track .done { stroke: var(--logo-pink); }
+.snake { position: relative; list-style: none; margin: 0; padding: 14px 0 0; }
+.snake li { position: relative; height: 120px; text-align: center; padding: 20px 18% 0; }
+.snake .dot { position: absolute; top: -9px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: var(--white); border: 3px solid var(--grey-5); }
+.snake li.done .dot { background: var(--logo-pink); border-color: var(--logo-pink); }
+.snake li.next .dot { border-color: var(--logo-pink); box-shadow: 0 0 0 6px rgba(231,51,205,0.18); }
+.snake li.finish .dot { width: 24px; height: 24px; top: -12px; margin-left: -12px; background: var(--navy); border-color: var(--navy); }
+.snake .m-name { display: block; font-family: var(--head); font-stretch: 112%; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: 15px; line-height: 1.3; }
+.snake .m-state { display: block; margin-top: 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--logo-pink); }
+.snake li:not(.done):not(.next) .m-name { color: #444; }
+
 /* Header at medium widths (split-screen laptops, tablets) */
 @media (max-width: 1000px) {
   .nav { padding: 0 24px; gap: 24px; }
@@ -377,11 +373,7 @@ a.tile { text-decoration: none; }
 }
 
 @media (max-width: 900px) {
-  .story, .ledger, .note, .contact, .chapter { grid-template-columns: 1fr; gap: 48px; }
-  .chapter { gap: 0; }
-  .chapter.flip .pic { order: 0; }
-  .chapter .txt { padding: 56px 24px 72px; }
-  .lap-years span:not(:first-child):not(:last-child) { display: none; }
+  .story, .ledger, .note, .contact { grid-template-columns: 1fr; gap: 48px; }
   .story { padding: 88px 24px; }
   .tiers, .sponsors { grid-template-columns: 1fr; }
   .shop { grid-template-columns: repeat(2, 1fr); gap: 40px 16px; }
@@ -397,6 +389,9 @@ a.tile { text-decoration: none; }
   .shop { grid-template-columns: 1fr; }
   .hero-inner { padding-bottom: 72px; }
   .hero-split { padding-top: 64px; }
+  .page-title { padding-top: calc(64px + 48px); }
+  .snake .m-name { font-size: 13px; }
+  .snake li { padding-left: 16%; padding-right: 16%; }
   .hero-split .hs-garage { height: auto; aspect-ratio: 4 / 3; }
   .hero-split .hero-inner { padding: 36px 16px 56px; }
   .art-drawing, .hs-art .art-drawing { width: 145%; max-width: none; margin-left: -22.5%; }
