@@ -298,6 +298,9 @@ a.tile { text-decoration: none; }
 .enquiry input, .enquiry textarea { width: 100%; font: inherit; padding: 12px 0; border: 0; border-bottom: 1.5px solid #bdbdbd; background: transparent; border-radius: 0; }
 .enquiry input:focus, .enquiry textarea:focus { outline: none; border-bottom-color: var(--black); }
 .enquiry textarea { min-height: 120px; resize: vertical; }
+.sponsor-form { max-width: 720px; margin: 0 auto; border: 1px solid var(--grey-2); }
+.honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.sent-note { max-width: 720px; margin: 0 auto; padding: 32px; text-align: center; font-size: 18px; font-weight: 600; color: var(--navy); background: #f6f2fa; border-left: 4px solid var(--logo-pink); }
 .send {
   margin-top: 36px;
   width: 100%;

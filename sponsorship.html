@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1794833115">
+  <link rel="stylesheet" href="style.css?v=1794833370">
 </head>
 <body>
 <header class="top">
@@ -56,6 +56,31 @@
     <p class="pack-line">Full details are in the sponsor pack. <a href="contact.html">Request it here</a>.</p>
   </section>
 
+  <section class="section" id="enquire">
+    <div class="section-head">
+      <h2 class="display">Get in touch</h2>
+      <p>Interested in sponsoring? Send a message and it comes straight to the 545 inbox.</p>
+    </div>
+    <p class="sent-note" id="sent-note" hidden>Thank you, your message has been sent. I&rsquo;ll be in touch soon.</p>
+    <form class="enquiry sponsor-form" id="sponsor-form" action="https://formsubmit.co/hello@545motorsport.co.uk" method="POST">
+      <input type="hidden" name="_next" value="https://545motorsport.co.uk/sponsorship.html?sent=1#enquire">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" id="mail-subject" value="Sponsorship enquiry from the 545 website">
+      <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label for="sf-name">Name</label>
+      <input id="sf-name" name="Name" type="text" required autocomplete="name">
+      <label for="sf-company">Company</label>
+      <input id="sf-company" name="Company" type="text" autocomplete="organization">
+      <label for="sf-email">Email</label>
+      <input id="sf-email" name="email" type="email" required autocomplete="email">
+      <label for="sf-subject">Subject</label>
+      <input id="sf-subject" name="Subject" type="text" required>
+      <label for="sf-message">Message</label>
+      <textarea id="sf-message" name="Message" required></textarea>
+      <button class="send" type="submit">Send</button>
+    </form>
+  </section>
+
 </main>
 <footer class="site-foot">
   <div class="foot-contact">
@@ -82,6 +107,14 @@
     });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
     document.addEventListener("click", function (e) { if (!top.contains(e.target)) close(); });
+    var sf = document.getElementById("sponsor-form");
+    if (sf) {
+      if (/[?&]sent=1/.test(location.search)) { sf.hidden = true; document.getElementById("sent-note").hidden = false; }
+      sf.addEventListener("submit", function () {
+        var subj = document.getElementById("sf-subject").value.trim();
+        if (subj) document.getElementById("mail-subject").value = "Sponsorship enquiry: " + subj;
+      });
+    }
   })();
 </script>
 </body>
