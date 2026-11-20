@@ -425,3 +425,4 @@ a.tile { text-decoration: none; }
   .pack, .enquiry { padding: 32px 24px; }
 }
 .thanks { max-width: 640px; margin: 24px auto 0; text-align: center; }
+.soon { display: inline-block; margin: 28px 0 0; padding: 10px 24px; background: var(--logo-pink); color: #fff; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
