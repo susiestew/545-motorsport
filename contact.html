@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1795143072">
+  <link rel="stylesheet" href="style.css?v=1795143315">
 </head>
 <body>
 <header class="top">
@@ -27,17 +27,13 @@
   </nav>
 </header>
 <main>
-  <section class="hero short" style="background-image:url('img/driver-style.jpg')">
-    <div class="hero-inner">
-      <p class="kicker">Contact</p>
-      <h1 class="display">Talk to the team</h1>
-      <p class="lede">Ask for the sponsor pack, or send a general enquiry. We reply to every message.</p>
-    </div>
+  <section class="page-title">
+    <h1 class="display">Talk to the team</h1>
+    <p class="lede">Questions, prints, commissions or sponsorship, send a message. We reply to every one.</p>
   </section>
 
   <section class="section">
-    <div class="contact">
-      <button class="pack" id="pack" type="button">Request the sponsor pack<small>Packages, audience and what partners get back, in one document.</small></button>
+    <div class="contact contact-solo">
       <form class="enquiry" id="enquiry">
         <h3 class="display" id="form-title">General enquiry</h3>
         <label for="email">Email</label>
@@ -55,15 +51,6 @@
     // Where enquiries go. Change this one line to the real address.
     var CONTACT_EMAIL = 'hello@545motorsport.co.uk';
     var subject = 'General enquiry';
-    var pack = document.getElementById('pack');
-    pack.addEventListener('click', function () {
-      var on = pack.classList.toggle('on');
-      subject = on ? 'Sponsor pack request' : 'General enquiry';
-      document.getElementById('form-title').textContent = subject;
-      var msg = document.getElementById('message');
-      if (on && !msg.value) msg.value = 'Please send me the 545 Motorsport sponsor pack.';
-      document.getElementById('email').focus();
-    });
     document.getElementById('enquiry').addEventListener('submit', function (e) {
       e.preventDefault();
       var f = e.target;
