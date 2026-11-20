@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1795186036">
+  <link rel="stylesheet" href="style.css?v=1795186357">
 </head>
-<body class="navy-ink">
+<body class="navy-ink journey-page">
 <header class="top">
   <nav class="nav">
     <a href="index.html" class="nav-logo" aria-label="545 Motorsport home"><img src="logo/545-navy-loop.gif?v=5" alt="545" width="960" height="300"></a>
@@ -40,18 +40,18 @@
   <section class="journey" id="journey">
     <h2 class="display">The journey</h2>
     <div class="snake-wrap">
-      <svg class="snake-track" viewBox="0 0 600 1214" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="todo-edge" d="M300 14 C630 14 630 134 300 134 C-30 134 -30 254 300 254 C630 254 630 374 300 374 C-30 374 -30 494 300 494 C630 494 630 614 300 614 C-30 614 -30 734 300 734 C630 734 630 854 300 854 C-30 854 -30 974 300 974 C630 974 630 1094 300 1094"/><path class="todo-fill" d="M300 14 C630 14 630 134 300 134 C-30 134 -30 254 300 254 C630 254 630 374 300 374 C-30 374 -30 494 300 494 C630 494 630 614 300 614 C-30 614 -30 734 300 734 C630 734 630 854 300 854 C-30 854 -30 974 300 974 C630 974 630 1094 300 1094"/><path class="done" d="M150 14 H300"/></svg>
+      <svg class="snake-track" aria-hidden="true" focusable="false"><path class="todo-edge"/><path class="todo-fill"/><path class="done"/></svg>
       <ol class="snake" aria-label="Milestones: 1 of 10 done">
-        <li class="done"><span class="dot"></span><span class="m-name">Website and socials launch</span><span class="m-state">Done</span></li>
-        <li class="next"><span class="dot"></span><span class="m-name">Race licence training</span><span class="m-state">Next</span></li>
-        <li><span class="dot"></span><span class="m-name">Test</span></li>
-        <li><span class="dot"></span><span class="m-name">Coaching</span></li>
-        <li><span class="dot"></span><span class="m-name">Pre-season testing</span></li>
-        <li><span class="dot"></span><span class="m-name">Championship entry fee funded</span></li>
-        <li><span class="dot"></span><span class="m-name">Race one funded</span></li>
-        <li><span class="dot"></span><span class="m-name">Race two funded</span></li>
-        <li><span class="dot"></span><span class="m-name">Half season funded</span></li>
-        <li class="finish"><span class="dot"></span><span class="m-name">Full season funded</span></li>
+        <li class="done"><span class="dot"></span><span class="label"><span class="m-name">Website and socials launch</span></span></li>
+        <li class="next"><span class="dot"></span><span class="label"><span class="m-name">Race licence training</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Test</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Coaching</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Pre-season testing</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Championship entry fee funded</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Race one funded</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Race two funded</span></span></li>
+        <li><span class="dot"></span><span class="label"><span class="m-name">Half season funded</span></span></li>
+        <li class="finish"><span class="dot"></span><span class="label"><span class="m-name">Full season funded</span></span></li>
       </ol>
     </div>
   </section>
@@ -81,6 +81,40 @@
     });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
     document.addEventListener("click", function (e) { if (!top.contains(e.target)) close(); });
+  })();
+</script>
+<script>
+  (function () {
+    var wrap = document.querySelector(".snake-wrap");
+    if (!wrap) return;
+    var svg = wrap.querySelector(".snake-track"), ol = wrap.querySelector(".snake");
+    var items = [].slice.call(ol.children);
+    var lastDone = -1;
+    items.forEach(function (li, i) { if (li.classList.contains("done")) lastDone = i; });
+    function draw() {
+      var W = wrap.clientWidth, H = wrap.clientHeight, L = wrap.getBoundingClientRect().left;
+      var cx = W / 2, x0 = -L - 2, K = Math.min(W / 2 - 10, 300) / 0.75;
+      var ys = items.map(function (li) { return ol.offsetTop + li.offsetTop; });
+      var n = ys.length, d = (cx - x0), segs = [];
+      var lead = "M" + x0 + " " + (ys[0] + 80) + " C" + (cx - d * 0.55) + " " + (ys[0] + 80) + " " + (cx - d * 0.45) + " " + ys[0] + " " + cx + " " + ys[0];
+      for (var i = 0; i < n - 1; i++) {
+        var x = cx + (i % 2 ? -K : K);
+        segs.push("C" + x + " " + ys[i] + " " + x + " " + ys[i + 1] + " " + cx + " " + ys[i + 1]);
+      }
+      var yl = ys[n - 1], dir = (n - 1) % 2 ? 1 : -1, xe = dir < 0 ? x0 : W + L + 2, de = Math.abs(xe - cx);
+      var tail = "C" + (cx + dir * de * 0.45) + " " + yl + " " + (cx + dir * de * 0.55) + " " + (yl + 80) + " " + xe + " " + (yl + 80);
+      var start = Math.max(lastDone, 0);
+      var todo = "M" + cx + " " + ys[start] + " " + segs.slice(start).join(" ") + " " + tail;
+      var done = lastDone < 0 ? "" : lead + " " + segs.slice(0, lastDone).join(" ");
+      if (lastDone < 0) todo = lead + " " + segs.join(" ") + " " + tail;
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+      svg.querySelector(".todo-edge").setAttribute("d", todo);
+      svg.querySelector(".todo-fill").setAttribute("d", todo);
+      svg.querySelector(".done").setAttribute("d", done);
+    }
+    draw();
+    window.addEventListener("resize", draw);
+    if (document.fonts) document.fonts.ready.then(draw);
   })();
 </script>
 </body>
