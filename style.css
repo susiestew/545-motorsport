@@ -354,6 +354,12 @@ a.tile { text-decoration: none; }
 .page-title .display { font-size: clamp(34px, 5.6vw, 76px); }
 .page-title .lede { max-width: 640px; margin: 20px auto 0; color: #333; }
 .contact-solo { grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+.so-far { max-width: 720px; margin: 0 auto; padding: 56px 24px 24px; text-align: center; }
+.so-far .display { font-size: clamp(24px, 3vw, 38px); margin-bottom: 24px; }
+.so-far p { margin: 0 0 18px; font-size: 18px; line-height: 1.65; color: #333; }
+.so-far a { font-weight: 700; color: var(--navy); }
+.so-far a:hover { color: var(--logo-pink); }
+.journey { scroll-margin-top: 96px; }
 .journey { max-width: 760px; margin: 0 auto; padding: 56px 24px 120px; }
 .journey > .display { text-align: center; font-size: clamp(26px, 3.4vw, 46px); margin-bottom: 48px; }
 .snake-wrap { position: relative; }
