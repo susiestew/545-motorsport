@@ -438,3 +438,13 @@ a.tile { text-decoration: none; }
 .shop-art .item { width: calc((100% - 64px) / 3); }
 @media (max-width: 900px) { .shop-art .item { width: calc((100% - 16px) / 2); } }
 @media (max-width: 640px) { .shop-art .item { width: 100%; } }
+@media (max-width: 640px) {
+  .feature { padding: 12px 12px 24px; gap: 18px; }
+  .feature-text { padding: 0 8px; }
+  .feature .badge { background: none; color: var(--logo-pink); padding: 0; margin-bottom: 8px; font-size: 11px; }
+  .feature .feature-size { font-size: 15px; }
+  .feature .feature-price { font-size: 22px; margin-bottom: 10px; }
+  .feature-text p { font-size: 15px; }
+  .buy-lg { padding: 11px 26px; font-size: 14px; background: var(--navy); }
+  .buy-lg:hover, .buy-lg:focus-visible { background: var(--logo-pink); color: #fff; }
+}
