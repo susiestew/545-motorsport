@@ -449,6 +449,12 @@ a.tile { text-decoration: none; }
   .buy-lg:hover, .buy-lg:focus-visible { background: var(--logo-pink); color: #fff; }
 }
 
+.foot-social { margin: 28px 0 0 !important; }
+.foot-social a { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 16px; color: var(--navy); text-decoration: none; }
+.foot-social a:hover { color: var(--logo-pink); }
+.dark-page .foot-social a { color: var(--white); }
+.dark-page .foot-social a:hover { color: var(--logo-pink); }
+
 /* Prints page: black background so the artwork pops */
 .dark-page { background: var(--black); color: var(--white); }
 .dark-page main, .dark-page .site-foot { background: var(--black); }
