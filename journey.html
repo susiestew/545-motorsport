@@ -100,7 +100,7 @@
         var x = cx + (i % 2 ? -K : K);
         segs.push("C" + x + " " + ys[i] + " " + x + " " + ys[i + 1] + " " + cx + " " + ys[i + 1]);
       }
-      var yl = ys[n - 1], dir = (n - 1) % 2 ? 1 : -1, xe = dir < 0 ? x0 : W + L + 2, de = Math.abs(xe - cx);
+      var yl = ys[n - 1], dir = (n - 2) % 2 ? 1 : -1, xe = dir < 0 ? x0 : W + L + 2, de = Math.abs(xe - cx);
       var tail = "C" + (cx + dir * de * 0.45) + " " + yl + " " + (cx + dir * de * 0.55) + " " + (yl + 80) + " " + xe + " " + (yl + 80);
       var start = Math.max(lastDone, 0);
       var todo = "M" + cx + " " + ys[start] + " " + segs.slice(start).join(" ") + " " + tail;
