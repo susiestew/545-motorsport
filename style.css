@@ -448,22 +448,3 @@ a.tile { text-decoration: none; }
   .buy-lg { padding: 11px 26px; font-size: 14px; background: var(--navy); }
   .buy-lg:hover, .buy-lg:focus-visible { background: var(--logo-pink); color: #fff; }
 }
-
-/* Prints page: black background so the artwork pops */
-.dark-page { background: var(--black); color: var(--white); }
-.dark-page main, .dark-page .site-foot { background: var(--black); }
-.dark-page .kicker { color: rgba(255,255,255,0.7); }
-.dark-page .section-head p, .dark-page .note p, .dark-page .foot-contact p, .dark-page .foot-base p { color: #b5b5b5; }
-.dark-page .item .art, .dark-page .feature { background: #161616; }
-.dark-page .item .art img, .dark-page .feature-art img { box-shadow: 0 20px 40px -20px rgba(0,0,0,0.9); }
-.dark-page .item .meta, .dark-page .ship-note, .dark-page .feature .feature-small { color: #a8a8a8; }
-.dark-page .feature-text p { color: #e2e2e2; }
-.dark-page .feature .feature-size, .dark-page .feature .feature-price { color: var(--white); }
-.dark-page .deal { background: #161616; }
-.dark-page .deal p { color: var(--white); }
-.dark-page .buy, .dark-page .buy-lg { background: var(--logo-pink); color: #fff; }
-.dark-page .buy:hover, .dark-page .buy:focus-visible { background: var(--white); color: var(--navy); }
-.dark-page .note { border-top-color: #2a2a2a; }
-.dark-page .note a, .dark-page .foot-email { color: var(--white); }
-.dark-page .note a:hover, .dark-page .foot-email:hover { color: var(--logo-pink); }
-.dark-page .site-foot, .dark-page .foot-base { border-top-color: #2a2a2a; }
