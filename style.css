@@ -474,3 +474,20 @@ a.tile { text-decoration: none; }
 .dark-page .note a, .dark-page .foot-email { color: var(--white); }
 .dark-page .note a:hover, .dark-page .foot-email:hover { color: var(--logo-pink); }
 .dark-page .site-foot, .dark-page .foot-base { border-top-color: #2a2a2a; }
+
+/* Phones: compact heroes so the content shows straight away */
+@media (max-width: 640px) {
+  .hero.hero-home { height: auto; min-height: 0; background-size: 100% auto; background-position: center 64px; padding: calc(64px + 66.7vw + 20px) 0 28px; }
+  .hero.hero-home::before { background: linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) calc(64px + 40vw), rgba(0,0,0,1) calc(64px + 66.7vw)); }
+  .hero-home .hero-inner { padding-bottom: 0; }
+  .hero-home .hero-logo { width: min(300px, 78vw); }
+  .hs-art .art-drawing { width: 100%; margin: 8px 0 0; }
+  .hs-art .hero-inner { padding: 14px 16px 22px; }
+  .hs-art .display { font-size: 24px; }
+  .hs-art .lede { margin-top: 8px; font-size: 15px; }
+  .prints-main > .hero-split + .section { padding-top: 28px; }
+  .hero-home + .intro { padding-top: 48px; }
+  .prints-main .section-head { margin-bottom: 24px; }
+  .prints-main .section-head .kicker { margin-bottom: 4px; font-size: 14px; }
+  .prints-main .print-group { margin-top: 64px; }
+}
