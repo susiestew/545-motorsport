@@ -475,6 +475,10 @@ a.tile { text-decoration: none; }
 .dark-page .note a:hover, .dark-page .foot-email:hover { color: var(--logo-pink); }
 .dark-page .site-foot, .dark-page .foot-base { border-top-color: #2a2a2a; }
 
+.hs-art .display { font-size: clamp(26px, 3.2vw, 44px); text-wrap: balance; }
+.hs-art .hero-inner { padding: 28px 24px 44px; }
+.deal-after { margin-top: 56px; }
+
 /* Phones: compact heroes so the content shows straight away */
 @media (max-width: 640px) {
   .hero.hero-home { height: auto; min-height: 0; background-size: 100% auto; background-position: center 64px; padding: calc(64px + 66.7vw + 20px) 0 28px; }
